@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Clock from "./frontend/clock";
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<h1>Hello</h1>, document.querySelector("#root"));
+  ReactDOM.render(<Clock />, document.querySelector("#root"));
+
 });
