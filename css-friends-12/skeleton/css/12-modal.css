@@ -1,0 +1,59 @@
+/* PHASE 12: Modal */
+.modal {
+  display: none;
+}
+
+.is-open {
+  display: block;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8)
+}
+
+.modal-form {
+  position: absolute;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 360px;
+  z-index: 3;
+  left: 50%;
+  margin-left: -220px;
+  top: 100px;
+}
+
+.modal-input {
+  display: inline-block;
+}
+
+.form-email,
+.form-password {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.modal-x {
+  float: right;
+  font-size: 24px;
+}
+
+#modal-header {
+  margin: auto;
+  font-size: 36px;
+}
+
+#modal-paragraph {
+  margin: auto;
+  padding-bottom: 10px;
+}
