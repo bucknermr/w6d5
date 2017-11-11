@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Clock from "./frontend/clock";
 import Tabs from "./frontend/tabs.jsx";
+import Weather from "./frontend/weather.jsx";
 
 class Root extends React.Component {
   render(){
@@ -15,6 +16,7 @@ class Root extends React.Component {
       <div>
         <Clock />
         <Tabs tabs={props}/>
+        <Weather />
       </div>
     );
   }

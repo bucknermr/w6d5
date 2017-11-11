@@ -958,6 +958,10 @@ var _tabs = __webpack_require__(28);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
+var _weather = __webpack_require__(29);
+
+var _weather2 = _interopRequireDefault(_weather);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -984,7 +988,8 @@ var Root = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(_clock2.default, null),
-        _react2.default.createElement(_tabs2.default, { tabs: props })
+        _react2.default.createElement(_tabs2.default, { tabs: props }),
+        _react2.default.createElement(_weather2.default, null)
       );
     }
   }]);
@@ -18404,7 +18409,7 @@ var Tabs = function (_React$Component) {
 
     _this.state = { index: 0 };
     _this.setIndex = _this.setIndex.bind(_this);
-    document.querySelector(".tab-title").classList.add("selected");
+    // document.querySelector(".tab-title").classList.add("selected");
     return _this;
   }
 
@@ -18456,6 +18461,94 @@ var Tabs = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Tabs;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Weather = function (_React$Component) {
+  _inherits(Weather, _React$Component);
+
+  function Weather() {
+    _classCallCheck(this, Weather);
+
+    var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this));
+
+    _this.state = {
+      // city:
+      // temperature:
+    };
+    return _this;
+  }
+
+  _createClass(Weather, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var coords = position.coords;
+
+        var request = new XMLHttpRequest();
+        var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coords.latitude + '&lon=' + coords.longitude + '&APPID=642357c93f1c42df2620b47e0254763e';
+
+        request.open('GET', url, true);
+
+        request.onload = function () {
+          if (request.status >= 200 && request.status < 400) {
+            // Success!
+            var resp = request.responseText;
+            console.log(resp);
+          } else {
+            // We reached our target server, but it returned an error
+            console.log("there was an error");
+          }
+        };
+
+        request.send();
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'This is weather.'
+        )
+      );
+    }
+  }]);
+
+  return Weather;
+}(_react2.default.Component);
+
+exports.default = Weather;
+
+// weather key thing
+// &APPID=642357c93f1c42df2620b47e0254763e
 
 /***/ })
 /******/ ]);

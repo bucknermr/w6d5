@@ -5,7 +5,7 @@ class Tabs extends React.Component {
     super(props);
     this.state = { index: 0 };
     this.setIndex = this.setIndex.bind(this);
-    document.querySelector(".tab-title").classList.add("selected");
+    // document.querySelector(".tab-title").classList.add("selected");
   }
 
   setIndex(e) {
